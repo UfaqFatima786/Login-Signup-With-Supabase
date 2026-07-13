@@ -16,35 +16,35 @@ async function signup() {
   try {
     const { data, error } = await supabase.auth.signUp({ email: signupEmail, password: signupPassword });
     console.log(data);
-    if (error) console.log(error);
+    if (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Signup Failed",
+        text: error.message
+      });
+    } else {
+      Swal.fire({
+        icon: "success",
+        title: "Signup Successful"
+      }).then(() => {
+        window.location.href = "login.html";
+      });
+    }
 
   } catch (error) {
     console.log(error);
   }
 }
-window.location.href = "login.html";
-// localStorage.setItem("email", signupEmail);
-// localStorage.setItem("password", signupPassword);
-
-// Swal.fire({
-//   icon: "success",
-//   title: "Signup Successful",
-//   text: "Account created!"
-// });
-// setTimeout(() => {
-//   window.location.href = "login.html";
-// }, 1500);
-// }
 
 
 async function login() {
 
-  var email = document.getElementById("login-email").value;
-  var password = document.getElementById("login-password").value;
-  console.log(email, password);
+  var loginEmail = document.getElementById("login-email").value;
+  var loginPass = document.getElementById("login-password").value;
 
+  console.log(loginEmail, loginPass);
 
-  if (email === "" || password === "") {
+  if (loginEmail === "" || loginPass === "") {
     Swal.fire({
       icon: "warning",
       title: "Empty Fields",
@@ -54,45 +54,35 @@ async function login() {
   }
 
   try {
+
     const { data, error } = await supabase.auth.signInWithPassword({
-      email: email,
-      password: password,
-    })
+      email: loginEmail,
+      password: loginPass
+    });
+
     console.log(data);
 
     if (error) {
-      console.log(error);
-      alert(error.message)
+      Swal.fire({
+        icon: "error",
+        title: "Login Failed",
+        text: error.message
+      });
     } else {
-      alert("Login Successful")
+      Swal.fire({
+        icon: "success",
+        title: "Login Successful",
+        text: "Welcome back!"
+      }).then(() => {
+        window.location.href = "local.storage.html";
+      });
     }
 
   } catch (error) {
     console.log(error);
   }
-  // var storedEmail = localStorage.getItem("email");
-  // var storedPassword = localStorage.getItem("password");
 
-  if (email === storedEmail && password === storedPassword) {
-    Swal.fire({
-      icon: "success",
-      title: "Login Successful",
-      text: "Welcome back!"
-    });
-
-    window.location.href = "local.storage.html";
-
-
-
-  } else {
-    Swal.fire({
-      icon: "error",
-      title: "Wrong Email and Password",
-      text: "Please check your email and password"
-    });
-  }
 }
-
 
 
 
