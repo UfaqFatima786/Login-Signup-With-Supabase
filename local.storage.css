@@ -1,0 +1,135 @@
+/* /* .container{
+    height: 800px;
+    width: 600px;
+    text-align: center;
+    padding: 20px;
+    background: rgba(121, 19, 1, 0.801);
+    border-radius: 10px;
+} */
+ /* body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; */
+    /* background-image: url('images/js.jpg'); */
+    /* background-size: cover;
+    background-position: center;
+}
+.heading4 {
+    font-size: 40px;
+    color: #580101;
+    margin-bottom: 20px;
+    background-color: #ee8b72;
+    width: 400px;
+    text-align: center;
+    border-radius: 20px;
+    border: 2px solid #ffffff;
+    margin-left: auto;
+    margin-right: auto;
+} */
+
+/* Body Styling */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #f8e1dc, #f3c6bd);
+    margin: 0;
+    padding: 30px;
+    animation: fadeIn 1s ease-in;
+}
+
+/* Main Heading */
+.heading4 {
+    font-size: 42px;
+    color: #fff;
+    background: linear-gradient(45deg, #ff6a5c, #a30000);
+    width: fit-content;
+    padding: 10px 30px;
+    margin: 20px auto;
+    border-radius: 30px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    animation: slideDown 1s ease;
+}
+
+/* Sub Headings */
+.heading3 {
+    color: #580101;
+    margin-top: 30px;
+    font-weight: 600;
+    position: relative;
+    animation: fadeUp 1s ease;
+    cursor: pointer;
+}
+
+/* underline effect */
+.heading3::after {
+    content: "";
+    width: 0;
+    height: 3px;
+    background: #ff6a5c;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.heading3:hover::after {
+    width: 100%;
+}
+
+/* Paragraph */
+.paralocal {
+    background-color: #fff;
+    padding: 15px 20px;
+    border-radius: 15px;
+    margin-top: 10px;
+    line-height: 1.6;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    animation: fadeUp 1.2s ease;
+}
+
+.paralocal:hover {
+    transform: scale(1.02);
+    cursor: pointer;
+}
+.code-example {
+    background: #1e1e1e;
+    color: #00ff9d;
+    padding: 20px;
+    border-radius: 15px;
+    overflow-x: auto;
+    margin-top: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    animation: fadeUp 1.4s ease;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
